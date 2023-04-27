@@ -77,9 +77,9 @@ const initialPose = () => {
     setInterval(()=>{
         const blink = {value:0};
         const tween = new TWEEN.Tween(blink)
-                        .to({value:1},500)
+                        .to({value:1},200)
                         .repeat(1)
-                        .yoyo()
+                        .yoyo(true)
                         .onUpdate(()=>{
                             AVATAR.setExpression('blink', blink.value);
                         });
