@@ -74,6 +74,18 @@ const initialPose = () => {
     AVATAR.setBoneRotation("rightUpperArm", { z: -Math.PI / 4 });
     AVATAR.setBoneRotation("leftUpperArm", { z: Math.PI / 4 });
 
+    setInterval(()=>{
+        const blink = {value:0};
+        const tween = new TWEEN.Tween(blink)
+                        .to({value:1},500)
+                        .repeat(1)
+                        .yoyo()
+                        .onUpdate(()=>{
+                            AVATAR.setExpression('blink', blink.value);
+                        });
+        tween.start();
+    },2000);
+    
 }
 
 const update = (detectState) => {
@@ -98,6 +110,8 @@ const update = (detectState) => {
     AVATAR.setBoneRotation("head", currentRotation);
 
     changeEmote(detectState.expressions);
+
+    TWEEN.update();
 }
 
 const moveGaze = (headRotation) => {
