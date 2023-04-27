@@ -117,6 +117,8 @@ let emoteState = 0;
 let isMouthOpen = false;
 const changeEmote = (mouthOpen) => {
 
+    console.log(`mouthOpen:${mouthOpen}`);
+
     if (!isMouthOpen && (mouthOpen >= 0.9)) {
         isMouthOpen = true;
         emoteState = (emoteState + 1) % 5;
