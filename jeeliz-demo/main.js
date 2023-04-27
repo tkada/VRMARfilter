@@ -117,41 +117,5 @@ let emoteState = 0;
 let isMouthOpen = false;
 const changeEmote = (mouthOpen) => {
 
-    console.log(`mouthOpen:${mouthOpen}`);
-
-    if (!isMouthOpen && (mouthOpen >= 0.9)) {
-        isMouthOpen = true;
-        emoteState = (emoteState + 1) % 5;
-    }
-    else if (isMouthOpen && (mouthOpen <= 0.1)) {
-        isMouthOpen = false;
-    }
-
-    let expressions = {
-        "fun": 0,
-        "angry": 0,
-        "joy": 0,
-        "sorrow": 0
-    }
-    switch (emoteState) {
-
-        case 1:
-            expressions.fun = 1;
-            break;
-        case 2:
-            expressions.angry = 1;
-            break;
-        case 3:
-            expressions.joy = 1;
-            break;
-        case 4:
-            expressions.sorrow = 1;
-            break;
-        default:
-            break;
-    }
-
-    for (key in expressions) {
-        AVATAR.setExpression(key, expressions[key]);
-    }
+    AVATAR.setExpression('a', mouthOpen);
 } 
