@@ -29,6 +29,10 @@ function init_threeScene(spec) {
 
 //launched by body.onload() :
 function main() {
+    const canvas = document.getElementById('jeeFaceFilterCanvas');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    console.log(`${canvas.width}x${canvas.height}`);
     JeelizResizer.size_canvas({
         canvasId: 'jeeFaceFilterCanvas',
         callback: function (isError, bestVideoSettings) {
