@@ -84,7 +84,7 @@ const initialPose = () => {
                             AVATAR.setExpression('blink', blink.value);
                         });
         tween.start();
-    },2000);
+    },5000);
     
 }
 
